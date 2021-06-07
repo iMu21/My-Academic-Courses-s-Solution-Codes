@@ -4,33 +4,57 @@ int main()
     printf("Write down the line below:\n");
     char str[100];
     gets(str);
-    printf("\nThe string is ");
-
-    int i,j,flag=0;
-
-    if(str[0]=='a')
+    int flag=0,i;
+    for(i=0; i<strlen(str); i++)
     {
-        printf("under the rule 'a'");
-        flag=1;
-        for(j=1; j<sizeof(str); j++)
+        if(str[i]!='a')
         {
-            if(str[j]=='b'&& str[j+1]>='a' && str[j+1]<='z')
-            {
-                printf(", 'a*b+'");
-            }
+            flag=1;
+            break;
         }
     }
-
-   if(strcmp(str,"abb")==0){
-    printf(", 'abb' ");
-   }
-
-
     if(flag==0)
     {
-        printf("not under any rule");
+        printf("The string is accepted under the rule 'a*'\n");
+        return 0;
     }
-    printf(".\n");
+
+    flag=0;
+    if(strcmp("abb",str)==0)
+    {
+        printf("The string is accepted under the rule 'abb'\n");
+        return 0;
+    }
+    if(str[strlen(str)-1]=='b')
+    {
+        for(i=0; i<strlen(str); i++)
+        {
+            if(str[i]=='a'&&flag==0)
+            {
+                continue;
+            }
+            else if(str[i]=='b'&&flag==0)
+            {
+                flag=1;
+            }
+            else if(str[i]=='b'&&flag==1)
+            {
+                continue;
+            }
+            else
+            {
+                printf("The string is not accepted under any rule.\n");
+                return 0;
+            }
+        }
+        printf("The string is accepted under the rule 'a*b+'.\n");
+        return 0;
+    }
+    else
+    {
+        printf("The string is not accepted under any rule.\n");
+        return 0;
+    }
 
     return 0;
 }
