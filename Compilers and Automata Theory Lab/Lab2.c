@@ -1,3 +1,6 @@
+/*
+Write a C program to recognize strings under 'a', 'a*b+', 'abb'.
+*/
 #include<stdio.h>
 int main()
 {
