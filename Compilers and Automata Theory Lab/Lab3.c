@@ -1,3 +1,6 @@
+/*
+Write a C program to test whether a given identifier is valid or not.
+*/
 #include<stdio.h>
 int main(){
 
