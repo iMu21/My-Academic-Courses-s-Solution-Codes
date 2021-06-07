@@ -1,3 +1,6 @@
+/*
+Write a C program to identify whether a given line is a comment or not.
+*/
 #include<stdio.h>
 int main()
 {
